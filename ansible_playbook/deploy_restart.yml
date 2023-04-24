@@ -1,0 +1,17 @@
+name: Deploy and Restart Application
+  hosts: app_servers
+  become: true
+  tasks:
+    - name: Copy Application File
+      copy:
+        src: /path/to/application.tar.gz
+        dest: /opt/application/
+    - name: Extract Application
+      unarchive:
+        src: /opt/application/application.tar.gz
+        dest: /opt/application/
+        remote_src: true
+    - name: Restart Application Service
+      service:
+        name: application
+        state: restarted

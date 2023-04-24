@@ -1,0 +1,11 @@
+#calling base image
+FROM ubuntu: latest
+
+#Dockerfile maintainer
+LABEL name = "khushbookhobragade358@gmail.com"
+
+#installing nginx from ubuntu 
+RUN apt update -y && apt install nginx 
+
+#port expose
+EXPOSE: 80
